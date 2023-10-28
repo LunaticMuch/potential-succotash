@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+
+// Retrieve the collection from URL
+// FIXME: this code smells
+const collection: string = Astro.url.pathname.split('/')[1]
+
+const allNewsletters = await getCollection(collection);
+
+---
+
+
+<div> <ul>
+    {
+      allNewsletters.map((newsletter: any) => (
+        <li>
+          <a href={`/newsletter/${newsletter.slug}/`}>{newsletter.data.title}</a>
+       
+        </li>
+      ))
+    }
+  </ul></div>
+

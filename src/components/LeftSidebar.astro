@@ -1,9 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+// import type { CollectionEntry } from "astro:content";
 
 // Retrieve the collection from URL
 // FIXME: this code smells
-const collection: string = Astro.url.pathname.split('/')[1]
+const collection: any = Astro.url.pathname.split('/')[1]
 
 const allNewsletters = await getCollection(collection);
 
